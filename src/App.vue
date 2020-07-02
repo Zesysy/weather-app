@@ -7,7 +7,12 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+      return {
+        api_key: process.env.VUE_APP_API_KEY,
+      }
+  }
 }
 </script>
 
