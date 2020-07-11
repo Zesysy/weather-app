@@ -10,9 +10,9 @@ Designed to discover VueJs:
 
 > ***Thought only for mobile***
 
-Application in French because it is more interesting to try to recover data in a language other than the basic one.
-
-***
+  ***
+  
+  Application in French because it is more interesting to try to recover data in a language other than the basic one.
 
 ## Clone
 
