@@ -1,6 +1,7 @@
 <template>
   <!-- Entry point of the VueJs application -->
-  <div id="app">
+  <!-- Checks that the main content of the object retrieved in the request exists & changes the background image depending on the temperature -->
+  <div id="app" :class="typeof weather.main != 'undefined' && weather.main.temp > 18 ? 'warm' : ''">
     <main>
       <div class="search-box">
         <!-- v-model creates a link between a form entry element or a component -->
@@ -84,6 +85,10 @@ body {
   background-size: cover;
   background-position: bottom;
   transition: 0.4s;
+}
+
+#app.warm {
+  background-image: url("./assets/warm-bg.jpg");
 }
 
 main {
