@@ -13,9 +13,10 @@
           @keypress="fetchWeather"
         />
       </div>
-      <div class="weather-wrap">
+      <!-- Checks that the main content of the object retrieved in the request exists -->
+      <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
         <div class="location-box">
-          <div class="location">Venise, IT</div>
+          <div class="location">{{weather.name}}, {{weather.sys.country}}</div>
           <div class="date">Samedi 11 juillet 2020</div>
         </div>
         <div class="weather-box">
