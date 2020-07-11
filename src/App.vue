@@ -17,7 +17,7 @@
       <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
         <div class="location-box">
           <div class="location">{{weather.name}}, {{weather.sys.country}}</div>
-          <div class="date">Samedi 11 juillet 2020</div>
+          <div class="date">{{ moment() }}</div>
         </div>
         <div class="weather-box">
           <div class="temp">{{Math.round(weather.main.temp)}}°c</div>
@@ -30,6 +30,9 @@
 </template>
 
 <script>
+import moment from "moment";
+import localization from "moment/src/locale/fr";
+
 export default {
   name: "App",
   data() {
@@ -55,6 +58,11 @@ export default {
     },
     setResults(results) {
       this.weather = results;
+    },
+    moment() {
+      return moment()
+        .locale("fr", localization)
+        .format("dddd Do MMMM YYYY");
     }
   }
 };
