@@ -25,7 +25,7 @@
         <div class="weather-box">
           <div class="temp">{{Math.round(weather.main.temp)}}°c</div>
           <div>
-            <img :src="'http://openweathermap.org/img/wn/'+ weather.weather[0].icon + '@2x.png'" />
+            <img :src="'https://openweathermap.org/img/wn/'+ weather.weather[0].icon + '@2x.png'" />
           </div>
           <!-- Retrieves the last weather event -->
           <div class="weather">{{capitalizeFirstLetter(weather.weather[0].description)}}</div>
