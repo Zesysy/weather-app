@@ -85,7 +85,7 @@ export default {
 }
 
 body {
-  font-family: "Merriweather", serif;
+  font-family: "Patrick Hand", cursive;
 }
 
 #app {
@@ -113,6 +113,7 @@ h3 {
   margin: 15px 0;
   color: #fff;
   text-align: center;
+  font-size: 1.2rem;
 }
 
 .search-box {
