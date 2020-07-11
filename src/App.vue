@@ -3,7 +3,15 @@
   <div id="app">
     <main>
       <div class="search-box">
-        <input type="text" class="search-bar" placeholder="Search..." />
+        <!-- v-model creates a link between a form entry element or a component -->
+        <!-- @keypress calls the method concerned at the press of a key, here enter -->
+        <input
+          type="text"
+          class="search-bar"
+          placeholder="Search..."
+          v-model="query"
+          @keypress="fetchWeather"
+        />
       </div>
       <div class="weather-wrap">
         <div class="location-box">
@@ -24,8 +32,28 @@ export default {
   name: "App",
   data() {
     return {
-      api_key: process.env.VUE_APP_API_KEY
+      api_key: process.env.VUE_APP_API_KEY,
+      url_base: process.env.VUE_APP_URL_BASE,
+      query: "", // API request
+      weather: {} // to store data
     };
+  },
+  methods: {
+    // Fetch recovers resources through the API asynchronously
+    fetchWeather(e) {
+      if (e.key == "Enter") {
+        fetch(
+          `${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`
+        )
+          .then(response => {
+            return response.json();
+          })
+          .then(this.setResults);
+      }
+    },
+    setResults(results) {
+      this.weather = results;
+    }
   }
 };
 </script>
